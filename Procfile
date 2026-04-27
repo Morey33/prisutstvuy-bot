@@ -1,4 +1,0 @@
-BOT_TOKEN=сюда_новый_токен_от_botfather
-OPENAI_API_KEY=сюда_ключ_openai
-ADMIN_TELEGRAM_ID=сюда_твой_telegram_id
-DB_PATH=prisutstvuy.db
