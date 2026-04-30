@@ -193,3 +193,16 @@ def advance_onboarding(telegram_id):
         f"UPDATE users SET onboarding_day = COALESCE(onboarding_day, 1) + 1 WHERE telegram_id = {p}",
         (telegram_id,)
     )
+
+
+def get_onboarding_day(telegram_id):
+    p = PLACEHOLDER
+    row = _fetchone(f'SELECT onboarding_day FROM users WHERE telegram_id = {p}', (telegram_id,))
+    if not row:
+        return 1
+    return row.get('onboarding_day') or 1
+
+def advance_onboarding(telegram_id):
+    p = PLACEHOLDER
+    _execute(f'UPDATE users SET onboarding_day = COALESCE(onboarding_day, 1) + 1 WHERE telegram_id = {p}', (telegram_id,))
+
